@@ -17,22 +17,30 @@ $negro_claro: #1c1c1c;
 
 body {
     background-color: $principal;
-}//pasarselo al content, fix later
+} //pasarselo al content, fix later
 
 .hidden {
     display: none;
     opacity: 0%;
 }
 
-.header__up_nav {
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 90%;
+    z-index: 10;
+}
+
+.header__up {
+    padding: 20px 20px;
+    border-bottom: 1px solid $negro_claro;
     background-color: white;
     color: $negro_claro;
-    padding: 10px 20px;
-    border-bottom: 1px solid $negro_claro;
-    .header__up_items {
-        @include ul__formatter;
-        justify-content: space-between;
-    }
+}
+
+.header__up_items {
+    @include ul__formatter;
+    justify-content: space-between;
 }
 
 .header__info_nav {
@@ -46,6 +54,7 @@ body {
 
 .feed {
     @include ul__formatter;
+    margin-top: 20%;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: stretch;
@@ -54,14 +63,17 @@ body {
 .card__feed {
     margin: auto;
     width: 90%;
-    padding:  10px 0px;
+    padding: 10px 0px;
     position: relative;
     .img__feed {
+        margin: auto;
+        display: block;
         border-radius: 8px;
         width: inherit;
         object-fit: cover;
     }
-    .overlay { //no funciona el overlay ¿? fix later
+    .overlay {
+        //no funciona el overlay ¿? fix later
         border-radius: inherit;
         position: absolute;
         height: 100%;

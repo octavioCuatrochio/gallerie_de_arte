@@ -13,14 +13,21 @@ body {
   opacity: 0%;
 }
 
-.header__up_nav {
-  background-color: white;
-  color: #1c1c1c;
-  padding: 10px 20px;
-  border-bottom: 1px solid #1c1c1c;
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 90%;
+  z-index: 10;
 }
 
-.header__up_nav .header__up_items {
+.header__up {
+  padding: 20px 20px;
+  border-bottom: 1px solid #1c1c1c;
+  background-color: white;
+  color: #1c1c1c;
+}
+
+.header__up_items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,6 +58,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
+  margin-top: 20%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -71,6 +79,8 @@ body {
 }
 
 .card__feed .img__feed {
+  margin: auto;
+  display: block;
   border-radius: 8px;
   width: inherit;
   -o-object-fit: cover;
