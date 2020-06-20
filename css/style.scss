@@ -41,7 +41,7 @@ body {
     background-color: $gris;
     border: 2px solid $gris;
     border-radius: 5px;
-    width: 80%;
+    width: 50%;
     margin: 10% auto;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .header__up {
-    padding: 20px 20px;
+    padding: 10px 20px;
     background-color: white;
     color: $negro_claro;
     box-shadow: 0px 10px 7px 1px rgba(0, 0, 0, 0.4);
@@ -69,11 +69,13 @@ body {
 }
 
 .asidebar {
-    position: absolute;
+    position: fixed; //PUTO INFIERNO PARA HACERLO STICKY Y QUE TE SIGA
     background-color: $negro_claro;
+    left: -50%;
     width: 50%;
     height: 100%;
     z-index: 20;
+
     .header__info_items {
         @include ul__formatter;
         flex-direction: column;
@@ -88,21 +90,45 @@ body {
     }
 }
 
+.asidebar_mostrada {
+    left: 0;
+}
+
+.transition {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.stop_scroll {
+    overflow: hidden;
+}
+
 .main__card {
     width: 100%;
     height: 100%;
-    .main__img_feed {
+    .main__img_featured {
         height: inherit;
         width: inherit;
         object-fit: cover;
     }
 }
 
-.feed {
+.list__title {
+    font-size: 2em;
+    text-align: center;
+}
+
+.featured {
     @include ul__formatter;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: stretch;
+}
+
+.content_centered {
+    margin: 0 200px 0 200px;
 }
 
 .logo {
@@ -114,7 +140,7 @@ body {
     width: 90%;
     padding: 10px 0px;
     position: relative;
-    .img__feed {
+    .img__featured {
         // display: block;
         border-radius: 8px;
         width: 100%;
@@ -129,8 +155,8 @@ body {
         background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 80%);
     }
     .card__text {
-        h1 {
-            font-size: 2em;
+        h2 {
+            font-size: 1.5em;
             padding: 10px 0;
         }
         p {
@@ -139,21 +165,10 @@ body {
     }
 }
 
-.stop-scrolling {
-    //encajarselo al body cuando 1quiero que deje de scrollear
-    height: 100%;
-    overflow: hidden;
-}
-
 @media screen and (min-width: 660px) {
-
-body {
-    background-color: $oscuro;
-}
-
     .card__container {
         .card__text {
-            h1 {
+            h2 {
                 font-size: 4em;
                 padding: 20px 0;
             }
@@ -161,5 +176,49 @@ body {
                 font-size: 2.4em;
             }
         }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .featured__list {
+        @include ul__formatter;
+        flex-wrap: wrap;
+        .destacado_1 {
+            width: 30%;
+        }
+        .destacado_2 {
+            width: 70%;
+        }
+        .destacado_3 {
+            padding-top: 50px;
+            .card__container {
+                display: flex;
+                .img__featured {
+                    width: 50%;
+                    padding-right: 20px;
+                }
+            }
+        }
+        .card__text {
+            h2 {
+                font-size: 2em;
+                padding: 20px 0;
+            }
+            p {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .asidebar {
+        left: 0;
+        top: -50%;
+        width: 100%;
+        height: auto;
+        z-index: 2;
+    }
+
+    .asidebar_mostrada {
+        top: 9%;
     }
 }
