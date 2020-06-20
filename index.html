@@ -14,13 +14,26 @@
         <nav class="header__up_nav">
             <ul class="header__up_items">
                 <li>
-                    paints
+                    <svg viewBox="0 0 100 100" class="icon">
+                        <path
+                            d="M9.375,25.781h81.25c1.727,0,3.125-1.399,3.125-3.125v-7.813c0-1.726-1.398-3.125-3.125-3.125H9.375
+                        c-1.726,0-3.125,1.399-3.125,3.125v7.813C6.25,24.382,7.649,25.781,9.375,25.781z M9.375,57.031h81.25
+                         c1.727,0,3.125-1.398,3.125-3.125v-7.813c0-1.726-1.398-3.125-3.125-3.125H9.375c-1.726,0-3.125,1.399-3.125,3.125v7.813
+                        C6.25,55.633,7.649,57.031,9.375,57.031z M9.375,88.281h81.25c1.727,0,3.125-1.398,3.125-3.125v-7.813
+                         c0-1.727-1.398-3.125-3.125-3.125H9.375c-1.726,0-3.125,1.398-3.125,3.125v7.813C6.25,86.883,7.649,88.281,9.375,88.281z" />
+                    </svg>
                 </li>
                 <li>
                     Arte a Casa
                 </li>
                 <li>
-                    registro
+                    <svg viewBox="0 0 100 100" class="icon">
+                        <path d="M97.5,42.5h-10v-10c0-1.375-1.125-2.5-2.5-2.5h-5c-1.375,0-2.5,1.125-2.5,2.5v10h-10c-1.375,0-2.5,1.125-2.5,2.5v5
+	                    c0,1.375,1.125,2.5,2.5,2.5h10v10c0,1.375,1.125,2.5,2.5,2.5h5c1.375,0,2.5-1.125,2.5-2.5v-10h10c1.375,0,2.5-1.125,2.5-2.5v-5
+	                    C100,43.625,98.875,42.5,97.5,42.5z M35,50c11.047,0,20-8.953,20-20s-8.953-20-20-20s-20,8.953-20,20S23.953,50,35,50z M49,55
+	                    h-2.609c-3.469,1.594-7.328,2.5-11.391,2.5s-7.906-0.906-11.391-2.5H21C9.406,55,0,64.406,0,76v6.5C0,86.641,3.359,90,7.5,90h55
+	                    c4.141,0,7.5-3.359,7.5-7.5V76C70,64.406,60.594,55,49,55z" />
+                    </svg>
                 </li>
             </ul>
         </nav>
@@ -38,27 +51,76 @@
             </ul>
         </nav>
     </header>
+
     <section class="content">
+
         <ul class="feed">
-            <li class="card__feed">
-                <!-- <div class="overlay"></div> -->
-                <img src="https://img.culturacolectiva.com/cdn-cgi/image/f=auto,w=1600,q=80,fit=contain/featured_image/2018/10/02/1538494185904/la-noche-estrellada-de-vincent-van-gogh.jpg"
-                    alt="La noche estrellada, van gogh" class="img__feed">
+            <li class="main__card">
+                <img src="images/galeria.jpg" alt="" class="main__img_feed">
             </li>
+
+            <hr class="divider">
+
             <li class="card__feed">
-                <!-- <div class="overlay"></div> -->
-                <img src="https://imagenes.milenio.com/POUb-ozvvEuo9lh7IXQwsLhtJRQ=/958x596/https://www.milenio.com/uploads/media/2020/04/08/guernica-pablo-picasso-museo-nacional_4_0_561_349.jpg" alt="El Guernica" class="img__feed">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et voluptatum magnam deserunt cum quidem aut eligendi itaque debitis iure odit! Tenetur qui voluptatibus dolor, totam aperiam inventore sed nulla labore?
-                </p>
+                <div class="card__container">
+                    <!-- <div class="overlay"></div> -->
+                    <img src="https://img.culturacolectiva.com/cdn-cgi/image/f=auto,w=1600,q=80,fit=contain/featured_image/2018/10/02/1538494185904/la-noche-estrellada-de-vincent-van-gogh.jpg"
+                        alt="La noche estrellada, van gogh" class="img__feed">
+                    <div class="card__text">
+                        <h1>La noche estrellada</h1>
+                        <p>Desde 1941 forma parte de la colección permanente del Museo de Arte Moderno de Nueva York.
+                            Considerado el magnum opus de van Gogh, el cuadro ha sido reproducido en numerosas ocasiones
+                            y es conocido como una de las pinturas más famosas de la historia. </p>
+                    </div>
+                </div>
             </li>
+
+            <hr class="divider">
+
             <li class="card__feed">
-                <!-- <div class="overlay"></div> -->
-                <img src="https://redespress.files.wordpress.com/2016/03/e5fc710e162cab3cae1ae8a601e3338a.jpg?w=529" alt="Bauhaus" class="img__feed">
+                <div class="card__container">
+                    <!-- <div class="overlay"></div> -->
+                    <img src="https://imagenes.milenio.com/POUb-ozvvEuo9lh7IXQwsLhtJRQ=/958x596/https://www.milenio.com/uploads/media/2020/04/08/guernica-pablo-picasso-museo-nacional_4_0_561_349.jpg"
+                        alt="El Guernica" class="img__feed">
+                    <div class="card__text">
+                        <h1>Guernica</h1>
+                        <p>Guernica es un famoso cuadro de Pablo Picasso, pintado entre los meses de mayo y junio de
+                            1937, cuyo título alude al bombardeo de Guernica, ocurrido el 26 de abril de dicho año
+                            (1937), durante la guerra civil española.</p>
+                    </div>
+                </div>
             </li>
+
+            <hr class="divider">
+
             <li class="card__feed">
-                <!-- <div class="overlay"></div> -->
-                <img src="https://chairish-prod.freetls.fastly.net/image/product/sized/c0016b67-1faf-4a0f-adf4-5ca5c90a82cf/andy-warhol-foundation-lithograph-print-pop-art-poster-campbells-soup-can-red-and-pink-1965-9713?aspect=fit&width=640&height=640" alt="Pop Art" class="img__feed">
+                <div class="card__container">
+                    <!-- <div class="overlay"></div> -->
+                    <img src="https://redespress.files.wordpress.com/2016/03/e5fc710e162cab3cae1ae8a601e3338a.jpg?w=529"
+                        alt="Bauhaus" class="img__feed">
+                    <div class="card__text">
+                        <h1>No encontré el autor de este je</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolore illum voluptates ad,
+                            ullam praesentium voluptate, quam explicabo, aliquam eos libero numquam nemo labore
+                            reprehenderit debitis! Nobis fugiat sit repudiandae.</p>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="divider">
+
+            <li class="card__feed">
+                <div class="card__container">
+                    <!-- <div class="overlay"></div> -->
+                    <img src="https://chairish-prod.freetls.fastly.net/image/product/sized/c0016b67-1faf-4a0f-adf4-5ca5c90a82cf/andy-warhol-foundation-lithograph-print-pop-art-poster-campbells-soup-can-red-and-pink-1965-9713?aspect=fit&width=640&height=640"
+                        alt="Pop Art" class="img__feed">
+                    <div class="card__text">
+                        <h1>Latas de sopa Campbell</h1>
+                        <p>Consiste en treinta y dos lienzos, cada uno de 50,8 cm de alto por 40,6 cm de ancho (20 x 16
+                            pulgadas) y con una pintura de una lata de sopa Campbell —cada una de las variedades de sopa
+                            enlatada que la compañía ofrecía en aquella época.</p>
+                    </div>
+                </div>
             </li>
         </ul>
     </section>

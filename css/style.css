@@ -4,7 +4,14 @@
   padding: 0;
 }
 
+.icon {
+  height: 2rem;
+  width: 2rem;
+}
+
 body {
+  width: 100%;
+  height: 100%;
   background-color: #ec643a;
 }
 
@@ -13,10 +20,18 @@ body {
   opacity: 0%;
 }
 
+.divider {
+  background-color: #434343;
+  border: 2px solid #434343;
+  border-radius: 5px;
+  width: 80%;
+  margin: 10% auto;
+}
+
 .sticky {
-  position: fixed;
-  top: 0;
-  width: 90%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
   z-index: 10;
 }
 
@@ -53,12 +68,23 @@ body {
           flex-direction: column;
 }
 
+.main__card {
+  width: 100%;
+  height: 100%;
+}
+
+.main__card .main__img_feed {
+  height: inherit;
+  width: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .feed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   list-style: none;
-  margin-top: 20%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -71,28 +97,35 @@ body {
           align-items: stretch;
 }
 
-.card__feed {
+.card__container {
   margin: auto;
   width: 90%;
   padding: 10px 0px;
   position: relative;
 }
 
-.card__feed .img__feed {
-  margin: auto;
-  display: block;
+.card__container .img__feed {
   border-radius: 8px;
-  width: inherit;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.card__feed .overlay {
+.card__container .overlay {
   border-radius: inherit;
   position: absolute;
   height: 100%;
   width: 100%;
   background-image: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(80%, rgba(255, 255, 255, 0)));
   background-image: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 80%);
+}
+
+.card__container .card__text h1 {
+  font-size: 2em;
+  padding: 10px 0;
+}
+
+.card__container .card__text p {
+  font-size: 1.2em;
 }
 /*# sourceMappingURL=style.css.map */
