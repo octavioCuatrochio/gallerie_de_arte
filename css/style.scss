@@ -9,6 +9,12 @@ $negro_claro: #1c1c1c;
     list-style: none;
 }
 
+@mixin button_style_remover {
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
 * {
     font-family: "Roboto", sans-serif;
     margin: 0;
@@ -47,24 +53,38 @@ body {
 
 .header__up {
     padding: 20px 20px;
-    border-bottom: 1px solid $negro_claro;
     background-color: white;
     color: $negro_claro;
+    box-shadow: 0px 10px 7px 1px rgba(0, 0, 0, 0.4);
 }
 
 .header__up_items {
     @include ul__formatter;
     justify-content: space-between;
+    align-items: baseline;
+    button {
+        @include button_style_remover;
+        background-color: inherit;
+    }
 }
 
-.header__info_nav {
-    color: $negro_claro;
-    padding: 10px 20px;
+.asidebar {
+    position: absolute;
+    background-color: $negro_claro;
+    width: 50%;
+    height: 100%;
+    z-index: 20;
     .header__info_items {
+        @include ul__formatter;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
-        @include ul__formatter;
+        color: white;
+        li {
+            padding: 15px 0;
+            width: 100%;
+            border-bottom: 1px solid $gris;
+            text-align: center;
+        }
     }
 }
 
@@ -83,6 +103,10 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: stretch;
+}
+
+.logo {
+    width: 120px;
 }
 
 .card__container {
@@ -115,20 +139,27 @@ body {
     }
 }
 
-
-.asidebar {
-    position: absolute;
-    background-color: $negro_claro;
-    width: 50%;
-    height: 100%;
-    z-index: 20;
-    top: 75px;
-}
-
-.stop-scrolling { //encajarselo al body cuando quiera pararlo
+.stop-scrolling {
+    //encajarselo al body cuando 1quiero que deje de scrollear
     height: 100%;
     overflow: hidden;
-  }
+}
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 660px) {
+
+body {
+    background-color: $oscuro;
+}
+
+    .card__container {
+        .card__text {
+            h1 {
+                font-size: 4em;
+                padding: 20px 0;
+            }
+            p {
+                font-size: 2.4em;
+            }
+        }
+    }
 }
