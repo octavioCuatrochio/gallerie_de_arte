@@ -120,6 +120,10 @@ body {
     text-align: center;
 }
 
+.feed {
+    list-style: none;
+}
+
 .featured {
     @include ul__formatter;
     flex-direction: column;
