@@ -61,8 +61,10 @@ body {
     color: $negro_claro;
     padding: 10px 20px;
     .header__info_items {
-        @include ul__formatter;
         flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        @include ul__formatter;
     }
 }
 
@@ -111,4 +113,22 @@ body {
             font-size: 1.2em;
         }
     }
+}
+
+
+.asidebar {
+    position: absolute;
+    background-color: $negro_claro;
+    width: 50%;
+    height: 100%;
+    z-index: 20;
+    top: 75px;
+}
+
+.stop-scrolling { //encajarselo al body cuando quiera pararlo
+    height: 100%;
+    overflow: hidden;
+  }
+
+@media screen and (min-width: 600px) {
 }

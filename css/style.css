@@ -58,14 +58,20 @@ body {
 }
 
 .header__info_nav .header__info_items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
 }
 
 .main__card {
@@ -127,5 +133,19 @@ body {
 
 .card__container .card__text p {
   font-size: 1.2em;
+}
+
+.asidebar {
+  position: absolute;
+  background-color: #1c1c1c;
+  width: 50%;
+  height: 100%;
+  z-index: 20;
+  top: 75px;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */
