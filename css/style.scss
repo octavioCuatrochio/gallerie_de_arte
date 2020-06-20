@@ -151,8 +151,10 @@ input[type="text"], input[type="password"] {
     background-color: white;
     color: $negro_claro;
     font-size: 1rem;
-    transition: background-color .5s;
-
+    transition: 0.3s;
+    &:active {
+        background-color: $oscuro;
+    }
 }
 
 .captcha {
@@ -240,7 +242,7 @@ input[type="text"], input[type="password"] {
     }
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 660px) { //tablet----------------------------------------------------------------------------------
     .card__container {
         .card__text {
             h2 {
@@ -252,9 +254,15 @@ input[type="text"], input[type="password"] {
             }
         }
     }
+    .register_aside {
+        width: 50%;
+    }
+    .register_welcome {
+        margin-top: 20%;
+    }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) { //PC-------------------------------------------------------------------------------------
     .featured__list {
         @include ul__formatter;
         flex-wrap: wrap;
@@ -296,4 +304,11 @@ input[type="text"], input[type="password"] {
     .asidebar_mostrada {
         top: 9%;
     }
+    .register_aside {
+        width: 25%;
+    }
+    .register_welcome {
+        margin-top: 10%;
+    }
 }
+

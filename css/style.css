@@ -169,8 +169,12 @@ input[type="text"], input[type="password"] {
   background-color: white;
   color: #1c1c1c;
   font-size: 1rem;
-  -webkit-transition: background-color .5s;
-  transition: background-color .5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.register_btn:active {
+  background-color: #b3330e;
 }
 
 .captcha {
@@ -282,6 +286,12 @@ input[type="text"], input[type="password"] {
   .card__container .card__text p {
     font-size: 2.4em;
   }
+  .register_aside {
+    width: 50%;
+  }
+  .register_welcome {
+    margin-top: 20%;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -327,6 +337,12 @@ input[type="text"], input[type="password"] {
   }
   .asidebar_mostrada {
     top: 9%;
+  }
+  .register_aside {
+    width: 25%;
+  }
+  .register_welcome {
+    margin-top: 10%;
   }
 }
 /*# sourceMappingURL=style.css.map */
