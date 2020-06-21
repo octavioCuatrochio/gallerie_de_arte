@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     let screen_width = screen.width;
-    if(screen_width >= 1024){
+    let container = document.querySelector("#js-container");
+
+    if(screen_width >= 1024 && container.classList.contains("index")){
         console.log(screen_width);
-        document.querySelector("#js-feed").classList.add("content_centered");
+        container.classList.add("content_centered");
     }
 
 
