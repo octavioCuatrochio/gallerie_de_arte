@@ -51,8 +51,24 @@ body {
     z-index: 10;
 }
 
-input[type="text"], input[type="password"] {
+.notificator {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.checked {
+    color: green;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
     // width: 80%;
+    color: white;
     display: block;
     padding: 10px 10px;
     border: 1px solid $gris;
@@ -90,11 +106,15 @@ input[type="text"], input[type="password"] {
     flex-direction: column;
     justify-content: flex-start;
     color: white;
-    li {
+    button {
+        @include button_style_remover;
         padding: 15px 0;
+        color: inherit;
         width: 100%;
         border-bottom: 1px solid $gris;
         text-align: center;
+        background-color: inherit;
+        font-size: 1rem;
     }
 }
 
@@ -118,6 +138,9 @@ input[type="text"], input[type="password"] {
     justify-content: space-evenly;
     // padding-left: 2rem;
     // height: fit-content;
+    .register_field {
+        color: white;
+    }
 }
 
 .register_field {
@@ -131,12 +154,6 @@ input[type="text"], input[type="password"] {
     color: white;
     text-align: center;
     padding: 10px 0 10px 0;
-}
-
-.register_aside_form {
-    span {
-        color: white;
-    }
 }
 
 .register_aside_mostrado {
@@ -163,7 +180,7 @@ input[type="text"], input[type="password"] {
     width: fit-content;
     font-size: 2rem;
     background-color: black;
-    margin: .7em 0 .3em 0;
+    margin: 0.7em 0 0.3em 0;
     display: block;
 }
 
@@ -204,8 +221,13 @@ input[type="text"], input[type="password"] {
     align-items: stretch;
 }
 
+.featured__list {
+    @include ul__formatter;
+    flex-wrap: wrap;
+}
+
 .content_centered {
-    margin: 0 200px 0 200px;
+    margin: 0;
 }
 
 .logo {
@@ -242,7 +264,8 @@ input[type="text"], input[type="password"] {
     }
 }
 
-@media screen and (min-width: 660px) { //tablet----------------------------------------------------------------------------------
+@media screen and (min-width: 660px) {
+    //tablet----------------------------------------------------------------------------------
     .card__container {
         .card__text {
             h2 {
@@ -260,9 +283,14 @@ input[type="text"], input[type="password"] {
     .register_welcome {
         margin-top: 20%;
     }
+
+    .content_centered {
+        margin: 0 50px 0 50px;
+    }
 }
 
-@media screen and (min-width: 1024px) { //PC-------------------------------------------------------------------------------------
+@media screen and (min-width: 1024px) {
+    //PC-------------------------------------------------------------------------------------
     .featured__list {
         @include ul__formatter;
         flex-wrap: wrap;
@@ -310,5 +338,8 @@ input[type="text"], input[type="password"] {
     .register_welcome {
         margin-top: 10%;
     }
-}
 
+    .content_centered {
+        margin: 0 200px 0 200px;
+    }
+}
