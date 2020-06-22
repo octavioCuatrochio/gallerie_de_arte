@@ -249,6 +249,7 @@ input[type="email"] {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
+  margin-top: 3%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -312,11 +313,11 @@ input[type="email"] {
 
 @media screen and (min-width: 660px) {
   .card__container .card__text h2 {
-    font-size: 4em;
+    font-size: 2.4em;
     padding: 20px 0;
   }
   .card__container .card__text p {
-    font-size: 2.4em;
+    font-size: 1.4em;
   }
   .register_aside {
     width: 50%;
@@ -325,7 +326,7 @@ input[type="email"] {
     margin-top: 20%;
   }
   .content_centered {
-    margin: 0 50px 0 50px;
+    margin: 0 5% 0 5%;
   }
 }
 
@@ -380,7 +381,7 @@ input[type="email"] {
     margin-top: 10%;
   }
   .content_centered {
-    margin: 0 200px 0 200px;
+    margin: 0 20% 0 20%;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             error_displayer.classList.remove("error");
             error_displayer.classList.add("checked");
             error_displayer.innerHTML = "Te has registrado exitosamente!";
+            setTimeout(mostrar_registro, 1000);
         }
     }
 
