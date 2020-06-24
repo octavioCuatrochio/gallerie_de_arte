@@ -20,12 +20,16 @@ body {
   opacity: 0%;
 }
 
-.divider {
+.divider, .divider_transparent {
   background-color: #434343;
   border: 2px solid #434343;
   border-radius: 5px;
   width: 50%;
-  margin: 10% auto;
+  margin: 5% auto;
+}
+
+.divider_transparent {
+  opacity: 0%;
 }
 
 .sticky {

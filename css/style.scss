@@ -42,7 +42,12 @@ body {
     border: 2px solid $gris;
     border-radius: 5px;
     width: 50%;
-    margin: 10% auto;
+    margin: 5% auto;
+}
+
+.divider_transparent {
+    @extend .divider;
+    opacity: 0%;
 }
 
 .sticky {
