@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         //recibir y mostrar todos los datos
                         for (let data of json.obras) {
                         contenedor.innerHTML += data.thing.obra + "<br />";
+                        console.log(data.thing.obra);
                         }
                     }
                     else {
@@ -118,6 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // recibirTodosDatos();
     // enviarDato(data);
-    // recibirTodosDatos();
+    recibirTodosDatos();
 
 });
