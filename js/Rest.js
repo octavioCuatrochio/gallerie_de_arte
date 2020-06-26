@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             "obra": "La noche estrellada",
             "precio": 35040,
+            "autor" : "Van Gogh",
             "vendedor": "The Louvre Inc"
         }
     };

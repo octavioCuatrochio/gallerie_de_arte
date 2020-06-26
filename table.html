@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/table-rest.js"></script>
+    <span>Filtro:</span>
+    <input type="text" id="js-input-filter">
+    <button id="js-filter">Filtrar</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Obra</th>
+                <th>Precio</th>
+                <th>Autor</th>
+                <th>Vendedor</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody id="js-tablaObras">
+
+        </tbody>
+    </table>
+    <form>
+        <span>Nombre de la obra:</span>
+        <input type="text">
+        <span>Precio:</span>
+        <input type="number">
+        <span>Autor de la obra:</span>
+        <input type="text">
+        <span>Nombre del vendedor:</span>
+        <input type="text">
+        <button id="js-add" type="button">Añadir Obra</button>
+    </form>
+</body>
+</html>

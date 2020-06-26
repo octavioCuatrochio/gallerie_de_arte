@@ -165,6 +165,10 @@ input[type="email"] {
     right: 0;
 }
 
+.prioritario {
+    background-color: goldenrod;
+}
+
 .register_btn {
     @include button_style_remover;
     margin-top: 10%;
