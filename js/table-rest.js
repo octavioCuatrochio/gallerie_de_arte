@@ -1,8 +1,6 @@
 // document.addEventListener("DOMContentLoaded", () => {
 
-function cargar(){
-
-    console.log("avance?");
+function cargar() {
     let baseURL = 'http://web-unicen.herokuapp.com/api/groups/';
     let groupID = '148clgallery';
     let collectionID = 'obras';
@@ -81,8 +79,30 @@ function cargar(){
                 })
             })
             .catch(function (e) {
+                console.log("Error, no hay internet.");
+            })
+    }
+
+
+    function cambiarDatos(id, datos) {
+
+        fetch(baseURL + groupID + "/" + collectionID + "/" + id, {
+            'method': 'PUT',
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            'body': JSON.stringify(datos)
+        })
+            //devuelve el comrpobante del envio
+            .then(comprobacion => {
+                comprobacion.json().then(json => {
+                    crearRow(json.information);
+                })
+            })
+            .catch(function (e) {
                 console.log(e)
             })
+
     }
 
 
@@ -128,6 +148,52 @@ function cargar(){
 
     }
 
+    function editarFila() {
+        let td = this.parentElement;
+        let tr = td.parentElement;
+        let all_td = tr.querySelectorAll("td");
+
+        editar_tr(all_td);
+    }
+
+    function editar_tr(td_list) {
+
+        for (td of td_list) {
+            if (!td.classList.contains("important")) {
+                let value = td.innerHTML;
+                td.innerHTML = "";
+                let input = document.createElement("input");
+                input.value = value;
+                td.appendChild(input);
+            }
+        }
+
+        td_list[6].innerHTML = `<button class="table_edit"> Guardar Cambios </button> `;
+
+        // console.log(td_list);
+
+        let tr = td_list[6].parentElement;
+
+        let button = tr.lastElementChild;
+        button.addEventListener("click", guardarCambios);
+
+
+    }
+
+    function guardarCambios() {
+        let tr = this.parentElement;
+        let td_borrar = tr.lastElementChild.previousElementSibling;
+        let id = td_borrar.previousElementSibling.innerHTML;
+
+        let values = tr.querySelectorAll("input");
+
+        let json = armarObjeto(values);
+
+        // cambiarDatos(id, json);
+        
+
+    }
+
     function borrarFila() {
 
         let td = this.parentElement;
@@ -148,10 +214,6 @@ function cargar(){
 
             for (let obra of json.obras) {
                 crearRow(obra);
-            }
-            let botones = pos_tabla.querySelectorAll(".table_btn");
-            for (let boton of botones) {
-                boton.addEventListener("click", borrarFila);
             }
         }
         else {
@@ -187,18 +249,22 @@ function cargar(){
 
         row.innerHTML = `
                     <tr>
-                        <td>${json.thing.obra}</td>
-                        <td>${json.thing.precio}</td>
-                        <td>${json.thing.autor}</td>
-                        <td>${json.thing.vendedor}</td>
-                        <td>${json._id}</td>
-                        <td>
-                        <button class="table_btn">Borrar</button>
-                        </td>
+                    <td>${json.thing.obra}</td>
+                    <td>${json.thing.precio}</td>
+                    <td>${json.thing.autor}</td>
+                    <td>${json.thing.vendedor}</td>
+                    <td class = "important">${json._id}</td>
+                    <td class = "important">
+                        <button class="table_delete">Borrar</button>
+                    </td>
+                    <td class = "important">
+                        <button class="table_edit">Editar</button>
+                    </td>
                     </tr>
-                  `;
+                    `;
 
-        let btn = row.querySelector("button").addEventListener("click", borrarFila);
+        let btn_borrar = row.querySelector(".table_delete").addEventListener("click", borrarFila);
+        let btn_editar = row.querySelector(".table_edit").addEventListener("click", editarFila);
         pos_tabla.appendChild(row);
     }
 
