@@ -1,5 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
 
+function cargar(){
+
+    console.log("avance?");
     let baseURL = 'http://web-unicen.herokuapp.com/api/groups/';
     let groupID = '148clgallery';
     let collectionID = 'obras';
@@ -7,17 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#js-filter").addEventListener("click", mostrarTabla);
     document.querySelector("#js-add").addEventListener("click", agregarObra);
-
-
-    let data = {
-        "thing":
-        {
-            "obra": "La noche estrellada",
-            "precio": 35040,
-            "autor": "Van Gogh",
-            "vendedor": "The Louvre Inc"
-        }
-    };
 
     //para mandar info
     function enviarDato(dato) {
@@ -32,8 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //devuelve el comrpobante del envio
             .then(comprobacion => {
                 comprobacion.json().then(json => {
-                    console.log(json)
-                    crearRow(json);
+                    crearRow(json.information);
                 })
             })
             .catch(function (e) {
@@ -73,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function recibirTodosDatos() {
 
-        event.preventDefault();
+        // event.preventDefault();
         fetch(baseURL + groupID + "/" + collectionID, {
             'method': 'GET',
         })
@@ -156,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (condition == "") {
 
             for (let obra of json.obras) {
-                console.log(obra);
                 crearRow(obra);
             }
             let botones = pos_tabla.querySelectorAll(".table_btn");
@@ -170,15 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     vacio = false;
                     crearRow(obra);
                 }
-                if (vacio == false) {
-                    let botones = pos_tabla.querySelectorAll(".table_btn");
-                    for (let boton of botones) {
-                        boton.addEventListener("click", borrarFila);
-                    }
-                }
                 else {
                     pos_tabla.innerHTML = "No hay nada que coincida con ese filtro";
-                    // console.log("asa");
                 }
 
             }
@@ -197,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function crearRow(json) {
 
         let row = document.createElement("tr");
-
+        console.log(json);
         if (json.thing.precio >= 5000) {
             row.classList.add("prioritario");
         }
@@ -215,13 +198,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     </tr>
                   `;
 
+        let btn = row.querySelector("button").addEventListener("click", borrarFila);
         pos_tabla.appendChild(row);
     }
 
     // recibirTodosDatos();
     // enviarDato(data);
     // recibirTodosDatos();
-    mostrarTabla();
     // enviarDato(data);
+    mostrarTabla();
 
-});
+}

@@ -11,19 +11,37 @@ document.addEventListener("DOMContentLoaded", () => {
     about.addEventListener("click", cargarAbout);
     logo.addEventListener("click", cargarIndex);
     contact.addEventListener("click", cargarContact);
+    admin.addEventListener("click", cargarAdmin);
 
 
-    function cargarContact(){
-        fetch("contact.html")
-        .then(response => {
-            response.text().then(html => {
-                restaurarClases(container);
-                container.classList.add("contact");
-                container.classList.add("content_centered");
-                container.innerHTML = html;
-                mostrar_aside();
+
+    function cargarAdmin() {
+        fetch("table.html")
+            .then(response => {
+                response.text().then(html => {
+                    restaurarClases(container);
+                    container.classList.add("admin");
+                    container.classList.add("content_centered");
+                    container.innerHTML = html;
+                    mostrar_aside();
+                    cargar();
+                    // mostrarTabla();
+                })
             })
-        })
+    }
+
+
+    function cargarContact() {
+        fetch("contact.html")
+            .then(response => {
+                response.text().then(html => {
+                    restaurarClases(container);
+                    container.classList.add("contact");
+                    container.classList.add("content_centered");
+                    container.innerHTML = html;
+                    mostrar_aside();
+                })
+            })
     }
 
 
