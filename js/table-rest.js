@@ -32,25 +32,18 @@ function cargar() {
     }
 
     // para recibir info especifica
-    // GET
     function recibirDato(id) {
-        event.preventDefault();
         fetch(baseURL + groupID + "/" + collectionID + "/" + id, {
             'method': 'GET',
         })
             //devuelve el comrpobante del envio
             .then(response => {
                 response.json().then(json => {
-                    console.log(json);
-                    let contenedor = document.querySelector("#result");
                     if (json.status == "OK") {
-                        //recibir y mostrar todos los datos
-                        // for (let data of json.obras) {
-                        contenedor.innerHTML = data.thing.obra + "<br />";
-                        // }
+                        crearRow(json.information);
                     }
                     else {
-                        contenedor.innerHTML = json.message;
+                        console.log(json.message);
                     }
                 })
             })
@@ -61,7 +54,6 @@ function cargar() {
     }
 
     function recibirTodosDatos() {
-
         // event.preventDefault();
         fetch(baseURL + groupID + "/" + collectionID, {
             'method': 'GET',
@@ -85,7 +77,6 @@ function cargar() {
 
 
     function cambiarDatos(id, datos) {
-
         fetch(baseURL + groupID + "/" + collectionID + "/" + id, {
             'method': 'PUT',
             'headers': {
@@ -96,7 +87,7 @@ function cargar() {
             //devuelve el comrpobante del envio
             .then(comprobacion => {
                 comprobacion.json().then(json => {
-                    crearRow(json.information);
+                    recibirDato(id);
                 })
             })
             .catch(function (e) {
@@ -129,7 +120,6 @@ function cargar() {
     }
 
 
-    //para borrar info
     function borrarDato(id) {
         event.preventDefault();
         //hay que pasarle la id
@@ -149,8 +139,7 @@ function cargar() {
     }
 
     function editarFila() {
-        let td = this.parentElement;
-        let tr = td.parentElement;
+        let tr = this.parentElement.parentElement;
         let all_td = tr.querySelectorAll("td");
 
         editar_tr(all_td);
@@ -158,6 +147,7 @@ function cargar() {
 
     function editar_tr(td_list) {
 
+        //los paso a inputs
         for (td of td_list) {
             if (!td.classList.contains("important")) {
                 let value = td.innerHTML;
@@ -168,29 +158,36 @@ function cargar() {
             }
         }
 
+        //reemplazo el boton editar por el boton guardar cambios
         td_list[6].innerHTML = `<button class="table_edit"> Guardar Cambios </button> `;
 
-        // console.log(td_list);
-
+        //me servia cualquiera, y agarre el 6 porque..si qsy
         let tr = td_list[6].parentElement;
+        let button_container = tr.lastElementChild;
+        let btn = button_container.children[0];
 
-        let button = tr.lastElementChild;
-        button.addEventListener("click", guardarCambios);
+        btn.addEventListener("click", guardarCambios);
 
 
     }
 
     function guardarCambios() {
-        let tr = this.parentElement;
+        //del button al tr
+        let tr = this.parentElement.parentElement;
+        //estoy en el boton borrar
         let td_borrar = tr.lastElementChild.previousElementSibling;
+        //selecciono el id
         let id = td_borrar.previousElementSibling.innerHTML;
 
+        //agarro todos los input del usuario, osea los cambios
         let values = tr.querySelectorAll("input");
 
         let json = armarObjeto(values);
 
-        // cambiarDatos(id, json);
-        
+        tr.innerHTML = "";
+
+        cambiarDatos(id, json);
+
 
     }
 
@@ -207,7 +204,7 @@ function cargar() {
 
     function Filter(json) {
         let condition = document.querySelector("#js-input-filter").value;
-        let vacio = true;
+
         pos_tabla.innerHTML = "";
 
         if (condition == "") {
@@ -219,11 +216,7 @@ function cargar() {
         else {
             for (let piece of json.obras) {
                 if (condition == piece.thing.obra) {
-                    vacio = false;
-                    crearRow(obra);
-                }
-                else {
-                    pos_tabla.innerHTML = "No hay nada que coincida con ese filtro";
+                    crearRow(piece);
                 }
 
             }
@@ -242,7 +235,6 @@ function cargar() {
     function crearRow(json) {
 
         let row = document.createElement("tr");
-        console.log(json);
         if (json.thing.precio >= 5000) {
             row.classList.add("prioritario");
         }
@@ -266,6 +258,10 @@ function cargar() {
         let btn_borrar = row.querySelector(".table_delete").addEventListener("click", borrarFila);
         let btn_editar = row.querySelector(".table_edit").addEventListener("click", editarFila);
         pos_tabla.appendChild(row);
+    }
+
+    function autoActualizar() {
+        
     }
 
     // recibirTodosDatos();
