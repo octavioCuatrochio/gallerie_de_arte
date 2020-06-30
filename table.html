@@ -1,29 +1,42 @@
+<span>Filtro por nombre:</span>
+<input type="text" id="js-input-filter">
+<button id="js-filter">Filtrar</button>
+<button id="js-create3">Añadir 3</button>
+<button id="js-clear">Vaciar Tabla</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Obra</th>
+            <th>Precio</th>
+            <th>Autor</th>
+            <th>Vendedor</th>
+            <th>ID</th>
+        </tr>
+    </thead>
+    <tbody id="js-tablaObras" class="table_obras">
 
-    <span>Filtro:</span>
-    <input type="text" id="js-input-filter">
-    <button id="js-filter">Filtrar</button>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Obra</th>
-                <th>Precio</th>
-                <th>Autor</th>
-                <th>Vendedor</th>
-                <th>ID</th>
-            </tr>
-        </thead>
-        <tbody id="js-tablaObras">
-
-        </tbody>
-    </table>
-    <form>
+    </tbody>
+</table>
+<form class="table_form">
+    <div>
         <span>Nombre de la obra:</span>
         <input type="text">
+    </div>
+    <div>
         <span>Precio:</span>
         <input type="number">
+    </div>
+    <div>
         <span>Autor de la obra:</span>
         <input type="text">
+    </div>
+    <div>
         <span>Nombre del vendedor:</span>
         <input type="text">
-        <button id="js-add" type="button">Añadir Obra</button>
-    </form>
+    </div>
+    <div>
+        <span>Imagen de la obra (no requerido) :</span>
+        <input type="text">
+    </div>
+    <button id="js-add" type="button">Añadir Obra</button>
+</form>

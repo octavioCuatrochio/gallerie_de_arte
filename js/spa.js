@@ -24,8 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     container.classList.add("content_centered");
                     container.innerHTML = html;
                     mostrar_aside();
-                    cargar();
-                    // mostrarTabla();
+                    cargarTabla();
                 })
             })
     }
@@ -66,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     container.classList.add("index");
                     container.classList.remove("content_centered");
                     container.innerHTML = html;
+                    cargarRecientes();
                 })
             })
 

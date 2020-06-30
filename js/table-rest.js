@@ -1,6 +1,6 @@
 // document.addEventListener("DOMContentLoaded", () => {
 
-function cargar() {
+function cargarTabla() {
     let baseURL = 'http://web-unicen.herokuapp.com/api/groups/';
     let groupID = '148clgallery';
     let collectionID = 'obras';
@@ -8,6 +8,8 @@ function cargar() {
 
     document.querySelector("#js-filter").addEventListener("click", mostrarTabla);
     document.querySelector("#js-add").addEventListener("click", agregarObra);
+    document.querySelector("#js-create3").addEventListener("click", crearTres);
+    document.querySelector("#js-clear").addEventListener("click", limpiarTabla);
 
     //para mandar info
     function enviarDato(dato) {
@@ -114,7 +116,8 @@ function cargar() {
                 "obra": array[0].value,
                 "precio": array[1].value,
                 "autor": array[2].value,
-                "vendedor": array[3].value
+                "vendedor": array[3].value,
+                "imagen" : array[4].value
             }
         }
     }
@@ -129,7 +132,7 @@ function cargar() {
             //devuelve el comrpobante del envio
             .then(comprobacion => {
                 comprobacion.json().then(json => {
-                    console.log("borrado");
+                    console.log(json.message);
                 })
             })
             .catch(function (e) {
@@ -245,7 +248,7 @@ function cargar() {
                     <td>${json.thing.precio}</td>
                     <td>${json.thing.autor}</td>
                     <td>${json.thing.vendedor}</td>
-                    <td class = "important">${json._id}</td>
+                    <td class = "important id">${json._id}</td>
                     <td class = "important">
                         <button class="table_delete">Borrar</button>
                     </td>
@@ -260,14 +263,56 @@ function cargar() {
         pos_tabla.appendChild(row);
     }
 
-    function autoActualizar() {
-        
+    function crearTres() {
+
+        let data_array = [
+            {
+                "thing": {
+                    "obra": "La Gioconda",
+                    "precio": 10000,
+                    "autor": "Leonardo da Vinci",
+                    "vendedor": "Museo del Louvre",
+                    "imagen" : "https://cdn.culturagenial.com/es/imagenes/cuadro-mona-lisa-o-la-gioconda-de-leonardo-da-vinci-og.jpg"
+                }
+            },
+            {
+                "thing": {
+                    "obra" : "El Guernica",
+                    "precio" : 3000,
+                    "autor": "Pablo Picasso",
+                    "vendedor" : "America's Art Society",
+                    "imagen" : "https://e00-elmundo.uecdn.es/especiales/2013/cultura/picasso/img/cabecera_guernica.jpg"
+                }
+
+            },
+            {
+                "thing": {
+                    "obra" : "La persistencia de la memoria",
+                    "precio" : 6000,
+                    "autor": "Salvador Dalí",
+                    "vendedor" : "Museum of Modern Art",
+                    "imagen" : "https://cdn.culturagenial.com/es/imagenes/persistencia-de-la-memoria-dali-og.jpg"
+                }
+            }
+        ];
+
+        for(let data of data_array){
+            enviarDato(data);
+        }
     }
 
-    // recibirTodosDatos();
-    // enviarDato(data);
-    // recibirTodosDatos();
-    // enviarDato(data);
+    function limpiarTabla() {
+        let  id_list = pos_tabla.querySelectorAll(".id");
+
+        for(let td of id_list){
+            borrarDato(td.innerHTML);
+            let tr = td.parentElement;
+            tr.innerHTML = "";
+        }
+
+
+    }
+
     mostrarTabla();
 
 }
